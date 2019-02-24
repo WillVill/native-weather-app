@@ -24,9 +24,9 @@ export default class App extends React.Component {
       'raleway-semi': require('./assets/fonts/Raleway/Raleway-SemiBold.ttf')
     });
 
+    // gets the users location and sets the results to lcoal state
     getUserLocation().then(res => {
       this.fetchWeather(res[0].city, res[0].isoCountryCode).then(forecast => {
-        console.log("forecast", forecast.weather[0].icon);
         this.setState({
           city: res[0].city,
           temperature: forecast.main.temp,
@@ -39,6 +39,7 @@ export default class App extends React.Component {
     .catch(err => {alert("Error!", err)});
   }
 
+  // gets the appropriate phrase based on temperature
   getWeatherPhrase() {
     const { temperature } = this.state;
 
@@ -59,6 +60,7 @@ export default class App extends React.Component {
     }
   }
 
+  // get forecast data from open weather map API
   fetchWeather(city, country) {
     return fetch(
       `http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&units=metric&APPID=${API_KEY}`
