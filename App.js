@@ -48,7 +48,7 @@ export default class App extends React.Component {
     }
     // 0 - 10 celsius
     if(temperature >= 0 && temperature <= 10) {
-      return "Put on a lot layers and you might be okay... Might!";
+      return "Put on a lot of layers and you might be okay... Might!";
     }
     // 11 - 20 celsius. 10 is still too cold to go outside and do stuff.
     if(temperature > 10 && temperature <= 20) {
@@ -82,7 +82,7 @@ export default class App extends React.Component {
 
   render() {
     const { isLoading, temperature, city, periodOfDay, weatherCondition } = this.state;
-
+    console.log("new Date().getTime()", parseInt((new Date().getTime() / 1000).toFixed(0)));
     return (
       <View style={styles.container}>
         {isLoading ? 
