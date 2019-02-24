@@ -3,10 +3,11 @@ import { StyleSheet, Text, View } from 'react-native';
 import PropTypes from 'prop-types';
 import { colorThemes } from '../utils/colorThemes';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { weatherConditions } from '../utils/weatherConditions';
 
 export default class WeatherHeader extends React.Component {
   render() {
-    const { city, temperature, periodOfDay, icon } = this.props;
+    const { city, temperature, periodOfDay, weatherCondition } = this.props;
 
     return (
       <View style={[styles.container, { backgroundColor: colorThemes[periodOfDay].headerBackground }]}>
@@ -14,7 +15,7 @@ export default class WeatherHeader extends React.Component {
           <Text style={[styles.cityText, { color: colorThemes[periodOfDay].fontColor }]}>{city}</Text>
         </View>
         <View style={styles.dataWrapper}>
-          <MaterialCommunityIcons size={80} color={ colorThemes[periodOfDay].fontColor } name={'weather-cloudy'} />
+          <MaterialCommunityIcons size={80} color={ colorThemes[periodOfDay].fontColor } name={weatherConditions[weatherCondition]} />
           <Text style={[styles.tempText, { color: colorThemes[periodOfDay].fontColor }]}>{temperature}˚</Text>
         </View>
       </View>
@@ -26,7 +27,7 @@ WeatherHeader.propTypes = {
   temperature: PropTypes.number,
   city: PropTypes.string,
   periodOfDay: PropTypes.string,
-  icon: PropTypes.string
+  weatherCondition: PropTypes.string
 };
 
 const styles = StyleSheet.create({

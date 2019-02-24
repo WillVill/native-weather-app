@@ -13,7 +13,8 @@ export default class App extends React.Component {
     periodOfDay: 'day',
     sunset: 0,
     city: "",
-    icon: ""
+    icon: "",
+    weatherCondition: null
   };
 
   componentDidMount() {
@@ -30,6 +31,7 @@ export default class App extends React.Component {
           city: res[0].city,
           temperature: forecast.main.temp,
           periodOfDay: this.getPeriodOfDay(),
+          weatherCondition: forecast.weather[0].main,
           isLoading: false
         });
       });
@@ -77,7 +79,7 @@ export default class App extends React.Component {
   }
 
   render() {
-    const { isLoading, temperature, city, periodOfDay, icon } = this.state;
+    const { isLoading, temperature, city, periodOfDay, weatherCondition } = this.state;
 
     return (
       <View style={styles.container}>
@@ -87,7 +89,7 @@ export default class App extends React.Component {
           </View>
         : (
           <Fragment>
-            <WeatherHeader periodOfDay={periodOfDay} temperature={temperature} city={city} icon={icon} />
+            <WeatherHeader periodOfDay={periodOfDay} temperature={temperature} city={city} weatherCondition={weatherCondition} />
             <WeatherBody periodOfDay={periodOfDay} phrase={this.getWeatherPhrase()} />
           </Fragment>
         )}
