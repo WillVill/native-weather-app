@@ -7,5 +7,6 @@ Run application locally:
 - download project
 - go to project directory with your preferred CLI
 - run `yarn start`
+- The application uses [Expo](https://expo.io/) so if you are not sure what to do next refer to their documentation or follow the instructions shown in your CLI.
 
 This project was initialized using [create-react-native-app](https://github.com/react-community/create-react-native-app).
