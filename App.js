@@ -74,7 +74,7 @@ export default class App extends React.Component {
   // return whether it is night or day
   getPeriodOfDay() {
     const {sunrise, sunset} = this.state;
-    const currentUnixTimestamp = parseInt((new Date('2012.08.10').getTime() / 1000).toFixed(0));
+    const currentUnixTimestamp = parseInt((new Date().getTime() / 1000).toFixed(0));
 
     if(currentUnixTimestamp < sunrise && currentUnixTimestamp > sunset) return 'night'
     return 'day';
