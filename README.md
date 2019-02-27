@@ -6,6 +6,7 @@ This application is able to show you the current weather for the city in which y
 Run application locally:
 - Download project
 - Go to project directory with your preferred CLI
+- Install Expo CLI globally on your machine by running `npm install -g expo-cli` or `yarn global expo-cli`
 - Run `yarn` to install dependencies
 - Then run `yarn start` to run the project
 - The application uses [Expo](https://expo.io/) so if you are not sure what to do next refer to their documentation or follow the instructions shown in your CLI.
